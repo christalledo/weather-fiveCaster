@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
@@ -20,70 +20,74 @@
 
     <div class="currentDay">
         <div class="card">
+            <div class="date" id="date"></div>
+            <h1 id="day1"> </h1>
+            <h2 id="temp1"></h2>
+            <h2 id="wind1"> </h2>
+            <h2 id="humidity1"> </h2>
+        </div>
+
+        <img src="" class="dayIcon1">
+    </div>
+    <div class="container">
+        <div class="card">
             <div class="row col-2">
-                <div class="date" id="date"></div>
-                <h1 class="day1"> </h1>
-                <img src="" class="dayIcon1">
-                <h2 class="temp1"></h2>
-                <h2 class="wind1"> </h2>
-                <h2 class="humidity1"> </h2>
+                <h1 id="day2"> </h1>
+                <img src="" class="dayIcon2">
+                <h2 id="temp2"></h2>
+                <h2 id="wind2"></h2>
+                <h2 id="humidity2"> </h2>
+
 
             </div>
+        </div>
 
-            <div class="container">
-                <div class="card">
-                    <div class="row col-2">
-                        <h1 class="day2"> </h1>
-                        <img src="" class="dayIcon2">
-                        <h2 class="temp2"></h2>
-                        <h2 class="wind2"> </h2>
-                        <h2 class="humidity2"> </h2>
-
-
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="row col-2">
-                        <h1 id="day3"> </h1>
-                        <img src="" id="dayIcon3">
-                        <h2 id="temp3"></h2>
-                        <h2 id="wind3"> </h2>
-                        <h2 id="humidity3"> </h2>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="row col-2">
-                        <h1 id="day4"> </h1>
-                        <img src="" id="dayIcon4">
-                        <h2 id="temp4"></h2>
-                        <h2 id="wind4"> </h2>
-                        <h2 id="humidity4"> </h2>
-                    </div>
-                </div>
-
-                <div id="card">
-                    <div id="row col-2">
-                        <h1 id="day5"> </h1>
-                        <img src="" id="dayIcon5">
-                        <h2 id="temp5"></h2>
-                        <h2 id="wind5"> </h2>
-                        <h2 id="humidity5"> </h2>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="row col-2">
-                        <h1 id="day6"> </h1>
-                        <img src="" id="dayIcon6">
-                        <h2 id="temp6"></h2>
-                        <h2 id="wind6"> </h2>
-                        <h2 id="humidity6"> </h2>
-                    </div>
-                </div>
-
+        <div class="card">
+            <div class="row col-2">
+                <h1 id="day3"> </h1>
+                <img src="" class="dayIcon3">
+                <h2 id="temp3"></h2>
+                <h2 id="wind3"> </h2>
+                <h2 id="humidity3"> </h2>
             </div>
+        </div>
+
+        <div class="card">
+            <div class="row col-2">
+                <h1 id="day4"> </h1>
+                <img src="" class="dayIcon4">
+                <h2 id="temp4"></h2>
+                <h2 id="wind4"> </h2>
+                <h2 id="humidity4"> </h2>
+            </div>
+        </div>
+
+        <div id="card">
+            <div id="row col-2">
+                <h1 id="day5"> </h1>
+                <img src="" class="dayIcon5">
+                <h2 id="temp5"></h2>
+                <h2 id="wind5"> </h2>
+                <h2 id="humidity5"> </h2>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="row col-2">
+                <h1 id="day6"> </h1>
+                <img src="" class="dayIcon6">
+                <h2 id="temp6"></h2>
+                <h2 id="wind6"> </h2>
+                <h2 id="humidity6"> </h2>
+            </div>
+        </div>
+
+    </div>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"> </script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="./script.js"></script>
+
+</html>

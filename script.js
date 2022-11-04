@@ -1,11 +1,66 @@
 var cityName = $('#cityInput')
 var searchBtn = $('.btn')
+var previousSearch = $('.storage')
+var form = $('.form')
+var storage = JSON.parse(localStorage.getItem('city')) || []
+var firstTime = true;
+
+for (var i = 0; i < storage.length; i++) {
+    var newLi = $('<li>')
+
+    newLi.text(storage[i])
+
+    previousSearch.append(newLi)
+}
 
 
-
-searchBtn.on('click', function (event) {
+form.on('submit', function (event) {
     event.preventDefault();
-    fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName.val() + "&units=metric&appid=8b98f6dd3341e541368c9b49320963bf")
+    getWeather(cityName.val());
+
+});
+
+
+function currentDay(name) {
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + name + "&units=metric&appid=8b98f6dd3341e541368c9b49320963bf")
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+
+        .then(function (data) {
+            console.log(data)
+            var cityIcon = data.weather[0].icon
+            var cityTemp = data.main.temp
+            var cityWind = data.wind.speed
+            var cityHumidity = data.main.humidity
+            var date = moment(data.dt * 1000).format("dddd, MMMM Do YYYY")
+
+
+
+            console.log(date)
+
+            $('#cityName1').text(name ? name : cityName.val())
+
+            $('.dayIcon').attr("src", "http://openweathermap.org/img/wn/" + cityIcon + "@2x.png")
+
+
+            $('#temp').text("Temperature: " + cityTemp)
+
+
+            $('#wind').text("Wind: " + cityWind)
+
+
+            $('#humidity').text("Humidity: " + cityHumidity)
+
+            $('#day').text("Date: " + date)
+        })
+}
+
+
+function getWeather(name) {
+    fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + name + "&units=metric&appid=8b98f6dd3341e541368c9b49320963bf")
         .then(function (response) {
             if (response.ok) {
                 return response.json();
@@ -29,23 +84,37 @@ searchBtn.on('click', function (event) {
                 $('.dayIcon' + count).attr("src", "http://openweathermap.org/img/wn/" + cityIcon + "@2x.png")
 
 
-                $('#temp' + count).text(cityTemp)
+                $('#temp' + count).text("Temperature: " + cityTemp)
 
 
-                $('#wind' + count).text(cityWind)
+                $('#wind' + count).text("Wind: " + cityWind)
 
 
-                $('#humidity' + count).text(cityHumidity)
+                $('#humidity' + count).text("Humidity: " + cityHumidity)
 
-                $('#day' + count).text(date)
+                $('#day' + count).text("Date: " + date)
 
                 count++;
 
-                // var set = setItem.localStorage('')
+
             }
 
+
+            storage.push(cityName.val())
+            if (!firstTime) {
+                localStorage.setItem('city', JSON.stringify(storage))
+
+                var newLi = $('<li>')
+
+                newLi.text(cityName.val())
+
+                previousSearch.append(newLi)
+            }
+
+            firstTime = false;
+            currentDay(name);
+
         });
-});
+}
 
-
-
+getWeather("Los Angeles")

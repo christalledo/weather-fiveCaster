@@ -7,6 +7,8 @@ body {
     background-image: url(./photo-1551098955-f124915c1ff3.jpg) !important;
     background-size: cover !important;
     min-height: 100vh;
+    display: flex;
+    flex-direction: row !important;
 
 }
 
@@ -29,4 +31,21 @@ body {
 .dayIcon1 {
     width: 300px;
 
+}
+
+.container1 {
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+    min-height: 400px;
+
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+}
+
+.dayIcon {
+    max-width: 100px;
 }
